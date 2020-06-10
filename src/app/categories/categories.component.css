@@ -1,0 +1,14 @@
+section#categories {
+	background-image: url('../../assets/images/categories/1.jpg');
+	background-size: cover;
+	background-color: rgba(41, 43, 44, .7);
+}
+
+div.card {
+	background-color: rgba(255, 255, 255, .5);
+}
+
+.category-name {
+	font-size: 28px;
+	color: rgba(255, 255, 255, .8);
+}

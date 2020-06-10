@@ -1,0 +1,11 @@
+section#header {
+	height: 70vmin;
+	background-image: url('../../assets/images/main-page/3.jpg');
+	background-position: top;
+	background-size: cover;
+}
+
+section#description {
+	min-height: 23vmin; 
+	font-size: 24px;
+}
