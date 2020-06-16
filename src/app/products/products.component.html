@@ -1,0 +1,31 @@
+<section class="bg-secondary text-dark pb-3 pt-3" id="products">
+	<div class="container">
+
+		<p class="category-name" id="rucks">{{category.name}}</p>
+		<div class="row">
+			
+			<div class="col-6 col-md-4 col-lg-3" *ngFor="let pr of products">
+				<div class="card card-product">
+<!-- 					https://bigopt.com/image-cache/?w=300&h=280&a=3&align=cb&f=static-files%2Fimg%2Fgoods%2F09%2F0d%2Fbm0140002a031-001-600x600-1546611681-729.jpg -->
+					<img class="card-img-top" *ngIf="pr.photoUrl" src="{{pr.photoUrl[0]}}" alt="Card image cap">
+					<div class="card-body pt-1">
+						<h5 class="card-title mb-1">{{pr.name}}</h5>
+						<p class="card-text mb-0">{{pr.description}}</p>
+						<ul class="list-unstyled">
+							<li class="list-inline-item mt-0">
+								<div class="text-info price">{{pr.price | currency}}</div>
+							</li>
+							<li class="list-inline-item mt-0">
+								<input type="text" class="phone d-none" placeholder="+38(0XX)-123-23-21"><input type="hidden"
+								class="data d-none"
+								value="Код: 0140002A031 РЮКЗАК ДЛЯ НОУТБУКА PASADENA">
+								<button class="btn btn-secondary px-5" onclick="buyAction(this);">Купити</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

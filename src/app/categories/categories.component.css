@@ -2,10 +2,13 @@ section#categories {
 	background-image: url('../../assets/images/categories/1.jpg');
 	background-size: cover;
 	background-color: rgba(41, 43, 44, .7);
+	min-height: 50vh;
 }
 
 div.card {
 	background-color: rgba(255, 255, 255, .5);
+	min-height: 40vmin;
+	min-width: 20vmax;
 }
 
 .category-name {

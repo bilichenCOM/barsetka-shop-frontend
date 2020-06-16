@@ -1,0 +1,54 @@
+.price {
+	font-size: 1.8rem;
+}
+
+.card-product {
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	.price {
+		font-size: 1rem;
+	}
+
+	.card-title {
+		font-size: 1.2rem;
+	}
+
+	.card-product .card-body {
+		padding: 10px;
+	}
+
+	.card-text {
+		font-size: 0.7rem;
+	}
+
+	.card-product .btn-secondary {
+		padding: 5px !important;
+		/*width ;*/
+		margin: 0px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	.card-product {
+		opacity: .8;
+	}
+
+	.card-product:hover {
+		opacity: 1;
+		border-width: 1px;
+		border-color: green;
+	}	
+}

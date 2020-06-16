@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AppSettings } from '../app-settings';
+
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+	selector: 'app-navbar',
+	templateUrl: './navbar.component.html',
+	styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+	instagramLink: string;
 
-  ngOnInit(): void {
-  }
+	constructor() {
+		this.instagramLink = AppSettings.INSTA_LINK;
+	}
+
+	ngOnInit(): void {
+	}
 
 }
