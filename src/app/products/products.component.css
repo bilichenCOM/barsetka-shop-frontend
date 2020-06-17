@@ -1,9 +1,13 @@
+section#products {
+	min-height: 80vh;
+}
+
 .price {
 	font-size: 1.8rem;
 }
 
 .card-product {
-	margin-bottom: 20px;
+	min-height: 100%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -28,6 +32,11 @@
 		/*width ;*/
 		margin: 0px;
 	}
+}
+
+.category-name {
+	font-size: 28px;
+	color: rgba(255, 255, 255, .8);
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
