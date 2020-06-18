@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
+import { APIEndpoints } from '../api-endpoints';
 import { Category } from '../_model/category';
 import { CATEGORIES } from '../categories.mock';
 
@@ -9,13 +11,15 @@ import { CATEGORIES } from '../categories.mock';
 })
 export class CategoryService {
 
-	constructor() { }
+	private categoriesUrl: string = APIEndpoints.CATEGORIES;
+
+	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<Category[]> {
-		return of(CATEGORIES);
+		return this.http.get<Category[]>(this.categoriesUrl);
 	}
 
 	getById(id: number): Observable<Category> {
-		return of(CATEGORIES.find(product => product.id === id));
+		return this.http.get<Category>(this.categoriesUrl + '/{id}');
 	}
 }
