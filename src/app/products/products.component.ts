@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
 	loadProducts() {
 		const categoryId = +this.route.snapshot.paramMap.get('categoryId');
-		this.productService.getByCategoryId(categoryId)
+		this.categoryService.getAllProducts(categoryId)
 			.subscribe(products => this.products = products, error => console.log(error));	
 	}
 }

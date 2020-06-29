@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { APIEndpoints } from '../api-endpoints';
 import { Category } from '../_model/category';
+import { Product } from '../_model/product';
 import { CATEGORIES } from '../categories.mock';
 
 @Injectable({
@@ -20,6 +21,10 @@ export class CategoryService {
 	}
 
 	getById(id: number): Observable<Category> {
-		return this.http.get<Category>(this.categoriesUrl + '/{id}');
+		return this.http.get<Category>(this.categoriesUrl + '/' + id);
+	}
+
+	getAllProducts(id: number): Observable<Product[]> {
+		return this.http.get<Product[]>(this.categoriesUrl + '/' + id + '/products');
 	}
 }
