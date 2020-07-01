@@ -22,6 +22,6 @@ export class ProductService {
 
 	getById(id: number): Observable<Product> {
 		// return of(PRODUCTS.find(product => product.id === id));
-		return this.http.get<Product>(this.productsUrl + '/{id}');
+		return this.http.get<Product>(this.productsUrl + '/' + id);
 	}
 }

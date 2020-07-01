@@ -21,13 +21,12 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
 	  this.getProduct();
-	  this.selectedPhotoUrl = this.product.photoUrls[0];
   }
 
   getProduct(): void {
 	  const productId = +this.route.snapshot.paramMap.get('productId');
 	  this.productService.getById(productId)
-		  .subscribe(product => this.product = product, error => console.log(error));
+		  .subscribe(product => {this.product = product; this.selectedPhotoUrl = product.photoUrls[0];}, error => console.log(error));
   }
 
   selectPhotoUrl(photoUrl: string) {

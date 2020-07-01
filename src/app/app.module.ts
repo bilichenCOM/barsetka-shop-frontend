@@ -12,6 +12,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     AboutUsComponent,
     ContactsComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    DeliveryFormComponent
   ],
   imports: [
     BrowserModule,
