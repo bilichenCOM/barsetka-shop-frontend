@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppSettings } from '../app-settings';
+import { Cart } from '../_model/cart';
+import { CartService } from '../_service/cart.service';
 
 @Component({
 	selector: 'app-navbar',
@@ -10,12 +12,20 @@ import { AppSettings } from '../app-settings';
 export class NavbarComponent implements OnInit {
 
 	instagramLink: string;
+	cart: Cart;
 
-	constructor() {
+	constructor(
+		private cartService: CartService
+		) {
 		this.instagramLink = AppSettings.INSTA_LINK;
 	}
 
 	ngOnInit(): void {
+		this.getCart();
 	}
 
+	getCart() {
+		this.cartService.getCurrentCart()
+			.subscribe(data => this.cart = data, err => console.log(err));
+	}
 }

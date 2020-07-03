@@ -2,3 +2,9 @@ img.logo {
 	height: 55px;
 	width: auto;
 }
+
+.cart-button {
+	color: white;
+	margin-left: 15px;
+	font-size: 20px;
+}

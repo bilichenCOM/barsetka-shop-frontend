@@ -3,4 +3,4 @@ import { ITEMS_MOCK } from './items.mock';
 
 
 export const CART_MOCK: Cart = 
-{ items: ITEMS_MOCK, totalPrice: 1740.0 };
+{ items: [], totalPrice: 0.0 };

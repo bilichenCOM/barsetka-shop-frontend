@@ -26,5 +26,8 @@
 			<span class="fab fa-facebook mr-2 ml-3"></span>
 			<a href="https://www.facebook.com/barsetka.shop.ua">facebook.com/barsetka.shop.ua</a>
 		</div>
+		<div class="cart-button">
+			<span class="fa fa-shopping-basket"></span><span *ngIf="cart.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
+		</div>
 	</div>
 </nav>
