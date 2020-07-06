@@ -13,6 +13,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
     ContactsComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    DeliveryFormComponent
+    DeliveryFormComponent,
+    UserCartComponent
   ],
   imports: [
     BrowserModule,

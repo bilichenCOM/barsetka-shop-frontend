@@ -1,0 +1,46 @@
+<section id="cart-page" class="bg-secondary">
+
+	<div class="container">
+		<h2 class="pt-4">Ваш кошик:</h2>
+		<table id="cart" class="table table-hover table-condensed">
+			<thead>
+				<tr>
+					<th style="width:60%">Product</th>
+					<th style="width:10%">Price</th>
+					<th style="width:8%">Quantity</th>
+					<th style="width:22%" class="text-center">Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of cart.items">
+					<td data-th="Product">
+						<div class="row">
+							<div class="col-sm-2 hidden-xs"><img src="{{item.product.photoUrls[0]}}" alt="{{item.product.name}}" class="img-responsive"/></div>
+							<div class="col-sm-10">
+								<h4 class="nomargin">{{item.product.name}}</h4>
+								<p>{{item.product.description}}</p>
+							</div>
+						</div>
+					</td>
+					<td data-th="Price">{{item.product.price}}</td>
+					<td data-th="Quantity">
+						<input type="number" class="form-control text-center" value="{{item.amount}}">
+					</td>
+					<td data-th="Subtotal" class="text-center">{{item.totalPrice}}</td>
+				</tr>
+				<tr *ngIf="!cart.items||cart.items.length===0">Поки що немає товарів...</tr>
+			</tbody>
+			<tfoot>
+				<tr class="visible-xs">
+					<td class="text-center"><strong>Total {{cart.totalPrice | currency}}</strong></td>
+				</tr>
+				<tr>
+					<td><a routerLink="/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+					<td colspan="2" class="hidden-xs"></td>
+					<td class="hidden-xs text-center"><strong>Total {{cart.totalPrice | currency}}</strong></td>
+					<td *ngIf="cart.items?.length>0"><a routerLink="/delivery-form" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</section>
