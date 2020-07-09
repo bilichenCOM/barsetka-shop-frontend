@@ -66,9 +66,9 @@
           <div class="row">
             <div class="col-md-5 mb-3">
               <label for="country">Країна</label>
-              <select class="custom-select d-block w-100" id="country" required>
+              <select class="custom-select d-block w-100" id="country" (change)="selectCountry($event.target.value)" required>
                 <option value="">виберіть...</option>
-                <option *ngFor="let c of countries" (click)="onSelectCountry(c)">{{c.name}}</option>
+                <option *ngFor="let c of countries" value="{{c.id}}">{{c.name}}</option>
               </select>
               <div class="invalid-feedback">Please select a valid country.</div>
             </div>
