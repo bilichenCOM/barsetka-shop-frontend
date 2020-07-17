@@ -3,7 +3,9 @@
   <div class="container">
     <div class="py-5 text-center">
       <span class="fa fa-truck" style="font-size: 25px;"></span>
+
       <h2>Форма доставки</h2>
+
       <p class="lead">Заповніть поля нижче для того, щоб завершити Ваше замовлення та передати його в обробку.</p>
     </div>
 
@@ -15,117 +17,102 @@
         </h4>
 
         <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of cart?.items">
-            <div>
-              <h6 class="my-0">{{item.product.name}}</h6>
-              <small class="text-muted">{{item.product.description}}</small>
-            </div>
-            <span class="text-muted">{{item.product.price | currency}}</span>
-          </li>
-
-          <li class="list-group-item d-flex justify-content-between" *ngIf="!cart || !cart.items || cart.items.length==0">
-            Ваша корзина порожня...
-          </li>
-
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Усього:</span>
-            <strong *ngIf="cart">{{cart.totalPrice | currency}}</strong>
-            <strong *ngIf="!cart">{{0 | currency}}</strong>
-          </li>
-        </ul>
-
-      </div>
-      <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Адреса доставки</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Ім'я</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">Некоректно введені дані.</div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="lastName">Прізвище</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">Некоректно введені дані.</div>
-            </div>
+          <li class="list-group-item d-flex justify-content-between lh-condensed"
+          *ngFor="let item of cart?.items">
+          <div>
+            <h6 class="my-0">{{item.product.name}}</h6>
+            <small class="text-muted">{{item.product.description}}</small>
           </div>
+          <span class="text-muted">{{item.product.price | currency}}</span>
+        </li>
 
-          <div class="mb-3">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="petya.pupkin@mail.com">
-            <div class="invalid-feedback">Неправильно введений емейл.</div>
-          </div>
+        <li class="list-group-item d-flex justify-content-between"
+        *ngIf="!cart || !cart.items || cart.items.length==0">
+        Ваша корзина порожня...
+      </li>
 
-          <div class="mb-3">
-            <label for="address">Адреса</label>
-            <input type="text" class="form-control" id="address" required>
-            <div class="invalid-feedback">Будь ласка додайте Вашу адресу.</div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-5 mb-3">
-              <label for="country">Країна</label>
-              <select class="custom-select d-block w-100" id="country" (change)="selectCountry($event.target.value)" required>
-                <option value="">виберіть...</option>
-                <option *ngFor="let c of countries" value="{{c.id}}">{{c.name}}</option>
-              </select>
-              <div class="invalid-feedback">Please select a valid country.</div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="state">Місто</label>
-              <select class="custom-select d-block w-100" id="state" required>
-                <option value="">виберіть...</option>
-                <option *ngFor="let cit of selectedCountry?.cities">{{cit.name}}</option>
-              </select>
-              <div class="invalid-feedback">Please provide a valid city name.</div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="zip">Індекс <span class="text-muted">(необов'язково)</span></label>
-              <input type="text" class="form-control" id="zip" placeholder="">
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
-          </div>
-          <hr class="mb-4">
-
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="save-info" checked="true">
-            <label class="custom-control-label" for="save-info">Зберегти мою інформацію</label>
-          </div>
-          <hr class="mb-4">
-          
-          <button class="btn btn-primary btn-lg btn-block mb-4" type="submit">Підтверджую замовлення</button>
-        </form>
-      </div>
-    </div>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Усього:</span>
+        <strong *ngIf="cart">{{cart.totalPrice | currency}}</strong>
+        <strong *ngIf="!cart">{{0 | currency}}</strong>
+      </li>
+    </ul>
 
   </div>
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Адреса доставки</h4>
 
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-  <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
-  <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function() {
-      'use strict';
 
-      window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
 
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-    }, false);
-    })();
-  </script>
+
+    <form [formGroup]="deliveryForm" class="needs-validation" (ngSubmit)="onSubmit()" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Ім'я</label>
+          <input type="text" class="form-control" id="firstName" formControlName="firstName">
+
+          <div class="invalid-feedback">Некоректно введені дані.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Прізвище</label>
+          <input type="text" class="form-control" id="lastName" formControlName="lastName">
+
+          <div class="invalid-feedback">Некоректно введені дані.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="petya.pupkin@mail.com"
+        formControlName="email">
+
+        <div class="invalid-feedback">Неправильно введений емейл.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Адреса</label>
+        <input type="text" class="form-control" id="address" formControlName="address">
+
+        <div class="invalid-feedback">Будь ласка додайте Вашу адресу.</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5 mb-3">
+
+          <div class="col-md-4 mb-3">
+            <label for="state">Місто</label>
+            <select class="custom-select d-block w-100" id="state" formControlName="city">
+              <option value="">виберіть...</option>
+              <option *ngFor="let cit of cities">{{cit.name}}</option>
+            </select>
+
+            <div class="invalid-feedback">Please provide a valid city name.</div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="zip">Індекс <span class="text-muted">(необов'язково)</span></label>
+            <input type="text" class="form-control" id="zip" formControlName="zip">
+
+            <div class="invalid-feedback">Zip code required.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="mb-4">
+
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="save-info" checked="true"
+        formControlName="saveInfo">
+        <label class="custom-control-label" for="save-info">Зберегти мою інформацію</label>
+      </div>
+
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block mb-4" type="submit" [disabled]="deliveryForm.invalid">Підтверджую замовлення</button>
+    </form>
+
+  </div>
+</div>
+</div>
 </section>

@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-import { Country } from '../_model/country';
-import { COUNTRIES } from '../countries.mock';
+import { City } from '../_model/city';
+import { APIEndpoints } from '../api-endpoints';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class GeographyService {
 
-	constructor() { }
+	citiesUrl: string = APIEndpoints.CITIES;
 
-	getCountries(): Observable<Country[]> {
-		return of(COUNTRIES);
+	constructor(private http: HttpClient) { }
+
+	getCities(): Observable<City[]> {
+		return this.http.get<City[]>(this.citiesUrl);
 	}
 }
