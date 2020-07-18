@@ -14,7 +14,7 @@ export class CartService {
 	constructor() { }
 
 	getCurrentCart(): Observable<Cart> {
-		return of(CART_MOCK);
+		return of(JSON.parse(localStorage.getItem('user-cart')));
 	}
 
 	addProduct(product: Product) {
@@ -32,5 +32,17 @@ export class CartService {
 			CART_MOCK.items.push(currItem);
 		}
 		CART_MOCK.totalPrice = CART_MOCK.items.map(i => i.totalPrice).reduce((p1, p2) => p1+p2, 0.0);
+		if (localStorage.getItem('user-cart')) {
+			var cart: Cart = JSON.parse(localStorage.getItem('user-cart'));
+			cart.items.push(currItem);
+			cart.totalPrice=CART_MOCK.totalPrice;
+			this.update(cart);
+		} else {
+			this.update(CART_MOCK);
+		}
+	}
+
+	update(cart: Cart) {
+		localStorage.setItem('user-cart', JSON.stringify(cart));
 	}
 }

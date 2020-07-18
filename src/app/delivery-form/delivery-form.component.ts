@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Cart } from '../_model/cart';
 import { CartService } from '../_service/cart.service';
@@ -20,18 +21,21 @@ export class DeliveryFormComponent implements OnInit {
 	deliveryForm: FormGroup = new FormGroup({
 		firstName: new FormControl("", Validators.required),
 		lastName: new FormControl("", Validators.required),
-		email: new FormControl("", [Validators.required, Validators.email]), 
+		email: new FormControl("", [Validators.required, Validators.email]),
+		phoneNumber: new FormControl("", Validators.required),
 		address: new FormControl(""),
 		city: new FormControl(""),
 		zip: new FormControl(""),
 		saveInfo: new FormControl("")
 	});
 	deliveryItem: DeliveryItem;
+	submited: boolean;
 
 	constructor(
 		private cartService: CartService,
 		private geographyService: GeographyService,
-		private deliveryService: DeliveryItemService
+		private deliveryService: DeliveryItemService,
+		private router: Router
 		) { }
 
 	ngOnInit(): void {
@@ -58,18 +62,21 @@ export class DeliveryFormComponent implements OnInit {
 		var delivery: DeliveryItem = new DeliveryItem();
 		delivery.firstName = this.deliveryForm.get("firstName").value;
 		delivery.lastName = this.deliveryForm.get("lastName").value;
-		delivery.address = this.deliveryForm.get("address").value;
 		delivery.email = this.deliveryForm.get("email").value;
+		delivery.phoneNumber = this.deliveryForm.get("phoneNumber").value;
+		delivery.products = this.cart.items.map(item=>item.product);
 		delivery.zip = +this.deliveryForm.get("zip").value;
 
 		console.log("sending request!");
 		this.deliveryService.addNewItem(delivery)
-			.subscribe(data => this.deliveryItem = data, err => console.log(err));
+			.subscribe(data => {
+				this.deliveryItem = data;
+				this.cart.items=[];
+				this.cart.totalPrice=0.0;
+				this.cartService.update(this.cart);
+				this.submited=true;
+			},
+			 err => console.log(err));
 
 	}
-
-	checkValid(): boolean {
-		return this.deliveryForm.valid;
-	}
-
 }

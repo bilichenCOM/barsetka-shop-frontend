@@ -1,4 +1,4 @@
-<section class="bg-light">
+<section id="delivery-form" class="bg-light">
 
   <div class="container">
     <div class="py-5 text-center">
@@ -9,7 +9,7 @@
       <p class="lead">Заповніть поля нижче для того, щоб завершити Ваше замовлення та передати його в обробку.</p>
     </div>
 
-    <div class="row">
+    <div *ngIf="!submited" class="row">
       <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Кошик:</span>
@@ -71,6 +71,14 @@
       </div>
 
       <div class="mb-3">
+        <label for="phoneNumber">Номер телефону</label>
+        <input type="text" class="form-control" id="phoneNumber" placeholder="+38 (0ХХ) ХХХ-ХХ-ХХ"
+        formControlName="phoneNumber">
+
+        <div class="invalid-feedback">Неправильно введений номер телефону.</div>
+      </div>
+
+      <div class="mb-3">
         <label for="address">Адреса</label>
         <input type="text" class="form-control" id="address" formControlName="address">
 
@@ -78,7 +86,6 @@
       </div>
 
       <div class="row">
-        <div class="col-md-5 mb-3">
 
           <div class="col-md-4 mb-3">
             <label for="state">Місто</label>
@@ -96,7 +103,6 @@
 
             <div class="invalid-feedback">Zip code required.</div>
           </div>
-        </div>
 
       </div>
 
@@ -114,5 +120,13 @@
 
   </div>
 </div>
+
+<div *ngIf="submited">
+  <div class="alert alert-success" role="alert">
+    <span class="fa fa-check-circle"></span> Вашому замовленню присвоєний номер <span class="text-bold">{{deliveryItem.id}}</span>. Дякуємо!
+    <p><a href="/categories">Завершити.</a></p>
+  </div>
+</div>
+
 </div>
 </section>
