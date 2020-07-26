@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { AdministrationComponent } from './administration/administration.component';
+import { ProductAdministrationComponent } from './administration/product-administration/product-administration.component';
+import { CategoryAdministrationComponent } from './administration/category-administration/category-administration.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,16 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     ProductsComponent,
     ProductDetailsComponent,
     DeliveryFormComponent,
-    UserCartComponent
+    UserCartComponent,
+    AdministrationComponent,
+    ProductAdministrationComponent,
+    CategoryAdministrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
