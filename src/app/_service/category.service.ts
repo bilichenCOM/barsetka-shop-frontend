@@ -27,4 +27,8 @@ export class CategoryService {
 	getAllProducts(id: number): Observable<Product[]> {
 		return this.http.get<Product[]>(this.categoriesUrl + '/' + id + '/products');
 	}
+
+	save(cat: Category): Observable<Category> {
+		return this.http.post<Category>(this.categoriesUrl, cat);
+	}
 }
