@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../_model/product';
 import { Category } from '../../_model/category';
 import { CategoryService } from '../../_service/category.service';
+import { ProductService } from '../../_service/product.service';
 
 @Component({
 	selector: 'app-product-administration',
@@ -13,8 +14,16 @@ export class ProductAdministrationComponent implements OnInit {
 
 	prod: Product;
 	categories: Category[];
+	last: Product;
+	submitted: boolean;
+	err: boolean;
 
-	constructor(private catService: CategoryService) { }
+	constructor(
+		private catService: CategoryService,
+		private prodService: ProductService
+		) {
+		this.prod=new Product();
+	}
 
 	ngOnInit(): void {
 		this.initCats();
@@ -27,6 +36,16 @@ export class ProductAdministrationComponent implements OnInit {
 
 
 	submit() {
-
+		this.prodService.save(this.prod)
+			.subscribe(data=>{
+					this.last=data;
+					this.err=false;
+					this.submitted=true;
+				}, 
+				err=>{
+					console.log(err);
+					this.submitted=false;
+					this.err=true;
+				})
 	}
 }
