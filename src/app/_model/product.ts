@@ -7,4 +7,8 @@ export class Product {
 	photoUrls: string[];
 	price: number;
 	category: Category;
+
+	constructor() {
+		this.photoUrls=[''];
+	}
 }

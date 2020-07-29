@@ -17,9 +17,9 @@
 
 <div class="form-group">
   <label for="category">Категорія:</label>
-  <select class="custom-select d-block w-100" [(ngModel)]="prod.category" (change)="onChange()" id="category">
+  <select class="custom-select d-block w-100" [ngModel]="prod.category" (ngModelChange)="onChangeCat($event)" (change)="onChange()" id="category">
     <option value="">виберіть...</option>
-    <option *ngFor="let cat of categories">{{cat.name}}</option>
+    <option [ngValue]="cat" *ngFor="let cat of categories">{{cat.name}}</option>
   </select>
 </div>
 

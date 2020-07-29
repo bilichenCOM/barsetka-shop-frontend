@@ -36,16 +36,24 @@ export class ProductAdministrationComponent implements OnInit {
 
 
 	submit() {
+		this.submitted=true;
 		this.prodService.save(this.prod)
 			.subscribe(data=>{
 					this.last=data;
 					this.err=false;
-					this.submitted=true;
+					this.prod=new Product();
 				}, 
 				err=>{
 					console.log(err);
-					this.submitted=false;
 					this.err=true;
 				})
+	}
+
+	onChange() {
+		this.submitted=false;
+	}
+
+	onChangeCat(cat) {
+		this.prod.category=cat;
 	}
 }

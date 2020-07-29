@@ -21,4 +21,8 @@ export class ProductService {
 	getById(id: number): Observable<Product> {
 		return this.http.get<Product>(this.productsUrl + '/' + id);
 	}
+
+	save(prod: Product): Observable<Product> {
+		return this.http.post<Product>(this.productsUrl, prod);
+	}
 }
