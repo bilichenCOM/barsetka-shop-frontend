@@ -28,7 +28,11 @@
 		</div>
 		<div class="cart-button">
 			<a class="text-white" routerLink="/currentUser/cart"><span class="fa fa-shopping-basket"></span></a>
-			<span *ngIf="cart.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
+			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
+    </div>
+    <div class="cart-button">
+			<a class="text-white" routerLink="/login"><span class="fas fa-user"></span></a>
+			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
 		</div>
 	</div>
 </nav>

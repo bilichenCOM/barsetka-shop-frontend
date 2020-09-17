@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { AdministrationComponent } from './administration/administration.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
 	{ path: 'productDetails/:productId', component: ProductDetailsComponent },
 	{ path: 'delivery-form', component: DeliveryFormComponent },
 	{ path: 'currentUser/cart', component: UserCartComponent },
-	{ path: 'administration', component: AdministrationComponent }
+	{ path: 'administration', component: AdministrationComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
