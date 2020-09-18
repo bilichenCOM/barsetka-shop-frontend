@@ -1,6 +1,6 @@
 <section class="py-3 px-2 px-lg-5" id="categories">
 	<div class="container-fluid text-center">
-		<div class="text-white" *ngIf="!categories">Sorry currently no categories available...</div>
+		<div class="text-white" *ngIf="!categories || categories.length == 0">Sorry currently no categories available...</div>
 		<div class="row d-flex justify-content-center">
 
 			<div class="col-sm-4 col-lg-3 mb-3" *ngFor="let cat of categories">

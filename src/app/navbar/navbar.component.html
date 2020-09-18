@@ -25,14 +25,19 @@
 			<a href="{{instagramLink}}">@barsetkashopua</a>
 			<span class="fab fa-facebook mr-2 ml-3"></span>
 			<a href="https://www.facebook.com/barsetka.shop.ua">facebook.com/barsetka.shop.ua</a>
-		</div>
+    </div>
 		<div class="cart-button">
 			<a class="text-white" routerLink="/currentUser/cart"><span class="fa fa-shopping-basket"></span></a>
 			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
     </div>
-    <div class="cart-button">
-			<a class="text-white" routerLink="/login"><span class="fas fa-user"></span></a>
-			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
+    <div class="cart-button" *ngIf="authenticated">
+      <!-- TODO: create cabinet component -->
+			<a class="text-white" routerLink="/cabinet"><span class="fas fa-user"></span></a>
+    </div>
+    <div *ngIf="!authenticated">
+      <a routerLink="/login">
+        <button class="btn btn-link"><span class="login-text">увійти</span></button>
+      </a>
 		</div>
 	</div>
 </nav>

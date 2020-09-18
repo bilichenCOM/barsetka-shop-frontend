@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl("", Validators.required)
   });
 
+  submitted: boolean;
   successLoggedIn: boolean;
 
   constructor(private authenticationService: AuthenticationService,
@@ -26,12 +27,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.invalid) {
       console.log('wrong data input');
+      this.submitted = true;
       return;
     }
-    var auth = new Authentication();
+
+    let auth = new Authentication();
     auth.username = this.loginForm.get('username').value;
     auth.password = this.loginForm.get('password').value;
-    var isLoggedIn = this.authenticationService.login(auth);
+    const isLoggedIn = this.authenticationService.login(auth);
     if (isLoggedIn) {
       console.log('successfully authenticated');
       this.router.navigateByUrl('/main');
@@ -39,5 +42,10 @@ export class LoginComponent implements OnInit {
     } else {
       this.successLoggedIn = false;
     }
+    this.submitted = true;
+  }
+
+  wasEdited() {
+    this.submitted = false;
   }
 }
