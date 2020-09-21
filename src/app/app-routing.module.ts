@@ -1,3 +1,4 @@
+import { AuthGuard } from './_helpers/authgard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -22,7 +23,7 @@ const routes: Routes = [
 	{ path: 'productDetails/:productId', component: ProductDetailsComponent },
 	{ path: 'delivery-form', component: DeliveryFormComponent },
 	{ path: 'currentUser/cart', component: UserCartComponent },
-	{ path: 'administration', component: AdministrationComponent },
+	{ path: 'administration', component: AdministrationComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ];
 

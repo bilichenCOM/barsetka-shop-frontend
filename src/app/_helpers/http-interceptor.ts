@@ -2,19 +2,24 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } fro
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {AuthenticationService} from '../_service';
+import { UserService } from '../_service/user.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService,
+              private userService: UserService ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.authenticationService.isUserLoggedIn() && req.url.indexOf('basicauth') === -1) {
-      const authReq = req.clone({
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
-        })
+    if (this.authenticationService.getCurrentAuthentication() && req.url.indexOf('basicauth') === -1) {
+      let authReq;
+      this.userService.getCurrentUser().subscribe(data => {
+        authReq = req.clone({
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${data.token}`
+          })
+        });
       });
       return next.handle(authReq);
     } else {

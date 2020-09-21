@@ -11,8 +11,8 @@ import {AuthenticationService} from '../_service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
 
   submitted: boolean;
@@ -34,14 +34,17 @@ export class LoginComponent implements OnInit {
     let auth = new Authentication();
     auth.username = this.loginForm.get('username').value;
     auth.password = this.loginForm.get('password').value;
-    const isLoggedIn = this.authenticationService.login(auth);
-    if (isLoggedIn) {
-      console.log('successfully authenticated');
-      this.router.navigateByUrl('/main');
+
+    this.authenticationService.login(auth).subscribe(data => {
+      localStorage.setItem('token', JSON.stringify(data));
       this.successLoggedIn = true;
-    } else {
+      console.log('successfully logged in');
+      this.router.navigateByUrl('/main');
+      this.authenticationService.save(auth);
+    }, err => {
       this.successLoggedIn = false;
-    }
+      console.log('authentication failed - wrong credentials!');
+    });
     this.submitted = true;
   }
 

@@ -30,11 +30,11 @@
 			<a class="text-white" routerLink="/currentUser/cart"><span class="fa fa-shopping-basket"></span></a>
 			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
     </div>
-    <div class="cart-button" *ngIf="authenticated">
+    <div class="cart-button" *ngIf="currAuth">
       <!-- TODO: create cabinet component -->
-			<a class="text-white" routerLink="/cabinet"><span class="fas fa-user"></span></a>
+			<a class="text-white" routerLink="/cabinet"><span class="fas fa-user"></span>{{currAuth.username}}</a>
     </div>
-    <div *ngIf="!authenticated">
+    <div *ngIf="!currAuth">
       <a routerLink="/login">
         <button class="btn btn-link"><span class="login-text">увійти</span></button>
       </a>

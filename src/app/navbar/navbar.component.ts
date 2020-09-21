@@ -1,3 +1,4 @@
+import { Authentication } from './../_model/authentication';
 import { AuthenticationService } from './../_service/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
 	instagramLink: string;
   cart: Cart;
-  authenticated: boolean;
+  currAuth: Authentication;
 
 	constructor(
     private cartService: CartService,
@@ -25,15 +26,15 @@ export class NavbarComponent implements OnInit {
 
 	ngOnInit(): void {
     this.getCart();
-    this.checkAuthenticated();
-	}
+    this.checkAuth();
+  }
+
+  checkAuth() {
+    this.currAuth = this.authenticationService.getCurrentAuthentication();
+  }
 
 	getCart() {
 		this.cartService.getCurrentCart()
 			.subscribe(data => this.cart = data, err => console.log(err));
-  }
-
-  checkAuthenticated() {
-    this.authenticated = this.authenticationService.isUserLoggedIn();
   }
 }
