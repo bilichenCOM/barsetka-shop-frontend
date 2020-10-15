@@ -12,4 +12,8 @@ export class UserService {
   getCurrentUser(): Observable<UserResponse> {
     return of(JSON.parse(localStorage.getItem('currentUser')));
   }
+
+  saveCurrentUser(currentUser: UserResponse) {
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  }
 }

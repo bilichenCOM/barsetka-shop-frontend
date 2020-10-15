@@ -30,11 +30,12 @@
 			<a class="text-white" routerLink="/currentUser/cart"><span class="fa fa-shopping-basket"></span></a>
 			<span *ngIf="cart?.items.length>0" class="badge badge-secondary">{{cart.items.length}}</span>
     </div>
-    <div class="cart-button" *ngIf="currAuth">
+    <div class="user-button" *ngIf="currUser">
       <!-- TODO: create cabinet component -->
-			<a class="text-white" routerLink="/cabinet"><span class="fas fa-user"></span>{{currAuth.username}}</a>
+      <a class="text-white" routerLink="/administration"><span class="fas fa-user px-lg-1"></span>{{currUser.firstName}}</a>
+      <button class="btn btn-link ml-auto mr-0 pr-0 text-white" (click)="logout()"><span class="fas fa-sign-out-alt"></span></button>
     </div>
-    <div *ngIf="!currAuth">
+    <div *ngIf="!currUser">
       <a routerLink="/login">
         <button class="btn btn-link"><span class="login-text">увійти</span></button>
       </a>

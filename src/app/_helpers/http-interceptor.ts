@@ -11,20 +11,18 @@ export class HttpInterceptorService implements HttpInterceptor {
               private userService: UserService ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.authenticationService.getCurrentAuthentication() && req.url.indexOf('basicauth') === -1) {
-      let authReq;
-      this.userService.getCurrentUser().subscribe(data => {
+    let authReq = req;
+    this.authenticationService.getCurrentAuthentication().subscribe(data => {
+      if (data) {
         authReq = req.clone({
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${data.token}`
           })
         });
-      });
-      return next.handle(authReq);
-    } else {
-      return next.handle(req);
-    }
+      }
+    });
+    return next.handle(authReq);
   }
 
 }

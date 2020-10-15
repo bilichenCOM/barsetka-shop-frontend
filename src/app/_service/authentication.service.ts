@@ -18,15 +18,11 @@ export class AuthenticationService {
     localStorage.setItem('currentAuth', JSON.stringify(auth));
   }
 
-  getCurrentAuthentication(): Authentication {
-    return JSON.parse(localStorage.getItem('currentAuth'));
+  getCurrentAuthentication(): Observable<Authentication> {
+    return of(JSON.parse(localStorage.getItem('currentAuth')));
   }
 
   login(auth: Authentication): Observable<UserResponse> {
-    if (this.getCurrentAuthentication()) {
-      return of(JSON.parse(localStorage.getItem('currentUser')));
-    }
-
     return this.http.post<UserResponse>(APIEndpoints.AUTH, auth);
   }
 

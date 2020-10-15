@@ -1,4 +1,5 @@
-import { Router } from '@angular/router';
+import { UserService } from './../_service/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Authentication } from './../_model/authentication';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -19,9 +20,17 @@ export class LoginComponent implements OnInit {
   successLoggedIn: boolean;
 
   constructor(private authenticationService: AuthenticationService,
-              private router: Router) { }
+              private userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.authenticationService.getCurrentAuthentication()
+      .subscribe(data => {
+        if (data) {
+          this.router.navigateByUrl('/main', {queryParams: {login: true}});
+        }
+      });
   }
 
   onSubmit() {
@@ -36,11 +45,11 @@ export class LoginComponent implements OnInit {
     auth.password = this.loginForm.get('password').value;
 
     this.authenticationService.login(auth).subscribe(data => {
-      localStorage.setItem('token', JSON.stringify(data));
+      this.userService.saveCurrentUser(data);
       this.successLoggedIn = true;
       console.log('successfully logged in');
-      this.router.navigateByUrl('/main');
       this.authenticationService.save(auth);
+      location.reload();
     }, err => {
       this.successLoggedIn = false;
       console.log('authentication failed - wrong credentials!');
