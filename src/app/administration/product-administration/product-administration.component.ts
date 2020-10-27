@@ -36,13 +36,14 @@ export class ProductAdministrationComponent implements OnInit {
 
 
 	submit() {
-		this.submitted=true;
+    this.submitted=true;
+    this.prod.photoUrls = this.prod.photoUrls[0].split(';');
 		this.prodService.save(this.prod)
 			.subscribe(data=>{
 					this.last=data;
 					this.err=false;
 					this.prod=new Product();
-				}, 
+				},
 				err=>{
 					console.log(err);
 					this.err=true;
