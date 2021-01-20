@@ -3,13 +3,13 @@
   <div class="container">
     <div class="form-group">
       <label for="exampleInputEmail1">Назва:</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="cat.name" (change)="onChange()">
+      <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="cat.name">
       <small id="emailHelp" class="form-text text-muted">Обов'язкове поле.</small>
     </div>
 
     <div class="form-group">
       <label for="description">Опис:</label>
-      <input type="text" class="form-control" id="description" [(ngModel)]="cat.description" (change)="onChange()">
+      <input type="text" class="form-control" id="description" [(ngModel)]="cat.description">
     </div>
 
     <button type="submit" class="btn btn-primary my-3" (click)="submit()">Зберегти</button>

@@ -1,3 +1,5 @@
+import { ProductDetailsAdministrationComponent } from './product-details-administration/product-details-administration.component';
+import { ProductsAdministrationComponent } from './products-administration/products-administration.component';
 import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
 import { CategoriesAdministrationComponent } from './categories-administration/categories-administration.component';
 import { AuthGuard } from './_helpers/authgard';
@@ -28,7 +30,9 @@ const routes: Routes = [
 	{ path: 'administration', component: AdministrationComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'administration/categories', component: CategoriesAdministrationComponent },
-  { path: 'administration/categories/:categoryId', component: CategoryDetailsAdministrationComponent }
+  { path: 'administration/categories/:categoryId', component: CategoryDetailsAdministrationComponent },
+  { path: 'administration/products', component: ProductsAdministrationComponent },
+  { path: 'administration/products/:productId', component: ProductDetailsAdministrationComponent },
 ];
 
 @NgModule({

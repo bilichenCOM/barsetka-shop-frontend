@@ -20,6 +20,8 @@ import { AdministrationComponent } from './administration/administration.compone
 import { LoginComponent } from './login/login.component';
 import { CategoriesAdministrationComponent } from './categories-administration/categories-administration.component';
 import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
+import { ProductsAdministrationComponent } from './products-administration/products-administration.component';
+import { ProductDetailsAdministrationComponent } from './product-details-administration/product-details-administration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { CategoryDetailsAdministrationComponent } from './category-details-admin
     AdministrationComponent,
     LoginComponent,
     CategoriesAdministrationComponent,
-    CategoryDetailsAdministrationComponent
+    CategoryDetailsAdministrationComponent,
+    ProductsAdministrationComponent,
+    ProductDetailsAdministrationComponent
   ],
   imports: [
     BrowserModule,

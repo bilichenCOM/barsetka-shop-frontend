@@ -1,0 +1,50 @@
+<section class="bg-secondary">
+
+  <div class="container">
+    <div class="form-group">
+      <label for="product-name">Назва:</label>
+      <input type="text" class="form-control" [(ngModel)]="prod.name" id="product-name">
+      <small id="emailHelp" class="form-text text-muted">Обов'язкове поле.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Опис:</label>
+      <input type="text" class="form-control" [(ngModel)]="prod.description" id="description">
+    </div>
+
+    <div class="form-group">
+      <label for="photo-urls">Фото адреси:</label>
+      <input type="text" class="form-control" [(ngModel)]="prod.photoUrls[0]" id="photo-urls">
+      <small class="form-text text-muted">розділювач адрес - ";"</small>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Категорія:</label>
+      <select class="custom-select d-block w-100" [ngModel]="prod.category" (ngModelChange)="onChangeCat($event)" id="category">
+        <option value="">виберіть...</option>
+        <option [ngValue]="cat" *ngFor="let cat of categories">{{cat.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Ціна:</label>
+      <input type="text" class="form-control" [(ngModel)]="prod.price" id="price">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="submit()">Зберегти</button>
+
+    <div *ngIf="submitted" class="pb-3">
+      <div class="alert alert-success" role="alert" *ngIf="create">
+        <span class="fa fa-check-circle"></span> Товар доданий №<span class="text-bold">{{prod.id}}</span>
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="!create">
+        <span class="fa fa-check-circle"></span> Товар оновлений №<span class="text-bold">{{prod.id}}</span>
+      </div>
+      <div class="alert alert-danger" *ngIf="err">
+        <span class="fa fa-times-circle"></span>Помилка.
+      </div>
+    </div>
+
+  </div>
+
+</section>
