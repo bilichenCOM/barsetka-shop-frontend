@@ -1,3 +1,5 @@
+import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
+import { CategoriesAdministrationComponent } from './categories-administration/categories-administration.component';
 import { AuthGuard } from './_helpers/authgard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,7 +26,9 @@ const routes: Routes = [
 	{ path: 'delivery-form', component: DeliveryFormComponent },
 	{ path: 'currentUser/cart', component: UserCartComponent },
 	{ path: 'administration', component: AdministrationComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'administration/categories', component: CategoriesAdministrationComponent },
+  { path: 'administration/categories/:categoryId', component: CategoryDetailsAdministrationComponent }
 ];
 
 @NgModule({

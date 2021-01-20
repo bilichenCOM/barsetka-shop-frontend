@@ -1,4 +1,7 @@
+import { UserResponse } from './../_model/user-response';
+import { UserService } from './../_service/user.service';
 import { Component, OnInit } from '@angular/core';
+import { AdminItem } from './admin-item';
 
 @Component({
 	selector: 'app-administration',
@@ -7,23 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrationComponent implements OnInit {
 
-	isCreateProduct: boolean;
-	isCreateCategory: boolean;
+  public admin: UserResponse;
 
-	constructor() { }
+  public adminItems: AdminItem[] = [
+    {name: "Категорії", description: "додати або змінити товарні категорії", link: "categories"},
+    {name: "Товари", description: "додати або змінити товари", link: "products"},
+  ];
+
+	constructor(private userService: UserService) { }
 
 	ngOnInit(): void {
-	}
-
-	activateProd() {
-		if (this.isCreateProduct) return;
-		this.isCreateCategory=false;
-		this.isCreateProduct=true;
-	}
-
-	activateCat() {
-		if (this.isCreateCategory) return;
-		this.isCreateProduct=false;
-		this.isCreateCategory=true;
-	}
+    this.userService.getCurrentUser().subscribe(u => this.admin = u);
+  }
 }

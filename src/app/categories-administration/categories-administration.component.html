@@ -1,0 +1,30 @@
+<section id="categories-administration" class="bg-secondary">
+
+  <div class="container">
+    <h2 class="text-center text-dark pt-3">Категорії</h2>
+    <a routerLink="/administration/categories/new"><button class="btn btn-success mb-3">➕ Додати</button></a>
+    <div class="row">
+
+      <div class="col-sm-4 col-lg-3 mb-3" *ngFor="let cat of categories">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">{{cat.name}}</h5>
+						<div class="card-text">
+              {{cat.description}}
+              <ul class="list-unstyled">
+                <li>
+                  <a routerLink="/administration/categories/{{cat.id}}">
+                    <button class="btn btn-info my-1">✍️ Редагувати</button>
+                  </a>
+                </li>
+                <li><button class="btn btn-info my-1" (click)="delete(cat)">❌ Видалити</button></li>
+              </ul>
+            </div>
+					</div>
+				</div>
+			</div>
+
+    </div>
+  </div>
+
+</section>

@@ -30,5 +30,13 @@ export class CategoryService {
 
 	save(cat: Category): Observable<Category> {
 		return this.http.post<Category>(this.categoriesUrl, cat);
-	}
+  }
+
+  update(cat: Category) {
+    return this.http.put(this.categoriesUrl, cat);
+  }
+
+  deleteById(catId: number) {
+    return this.http.delete(`${this.categoriesUrl}/${catId}`);
+  }
 }

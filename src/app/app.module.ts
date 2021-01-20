@@ -17,9 +17,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { AdministrationComponent } from './administration/administration.component';
-import { ProductAdministrationComponent } from './administration/product-administration/product-administration.component';
-import { CategoryAdministrationComponent } from './administration/category-administration/category-administration.component';
 import { LoginComponent } from './login/login.component';
+import { CategoriesAdministrationComponent } from './categories-administration/categories-administration.component';
+import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +35,9 @@ import { LoginComponent } from './login/login.component';
     DeliveryFormComponent,
     UserCartComponent,
     AdministrationComponent,
-    ProductAdministrationComponent,
-    CategoryAdministrationComponent,
-    LoginComponent
+    LoginComponent,
+    CategoriesAdministrationComponent,
+    CategoryDetailsAdministrationComponent
   ],
   imports: [
     BrowserModule,
