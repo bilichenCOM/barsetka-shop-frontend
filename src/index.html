@@ -18,11 +18,42 @@
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- i18n -->
+ <!--  <script src="./assets/js/jquery.i18n/src/jquery.i18n.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.emitter.bidi.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.emitter.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.fallbacks.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.language.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.messagestore.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.parser.js"></script>
+  <script src="./assets/js/i18n/i18n.js"></script>
+ -->
+ <!-- TODO: make latest ng localize package usable for project -->
+ 
 	<script>
+		function swap(e) {
+	        var selected = $(this).html();
+	        var selectedlocale = $(this).data('locale');
+	        var replace = $('.dropdown-toggle').html();
+	        var replacelocale = $('.dropdown-toggle').data('locale');
+
+	        $('.dropdown-toggle').html(selected);
+	        $(this).html(replace);
+	        $('.dropdown-toggle').data('locale', selectedlocale);
+	        $(this).data('locale', replacelocale);
+	      }
+
 		$(document).ready(function() {
 	        $('.navbar-collapse a').click(function(){
 	            $(".navbar-collapse").collapse('hide');
 	        });
+
+	        $('.navbar-nav').on('click', 'a', collapse);
+
+	        $('.switch-locale').off('click', collapse);
+
+	        $('.dropdown-menu').on('click', 'a', swap);
+
 		});
     </script>
 </body>
