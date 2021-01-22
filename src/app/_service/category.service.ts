@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { APIEndpoints } from '../api-endpoints';
 import { Category } from '../_model/category';
 import { Product } from '../_model/product';
 import { CATEGORIES } from '../categories.mock';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Origin' : 'http://localhost:4200'
+  })
+};
 
 @Injectable({
 	providedIn: 'root'
@@ -33,7 +40,7 @@ export class CategoryService {
   }
 
   update(cat: Category) {
-    return this.http.put(this.categoriesUrl, cat);
+    return this.http.put<Category>(this.categoriesUrl, cat);
   }
 
   deleteById(catId: number) {

@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class CategoriesAdministrationComponent implements OnInit {
 
   public categories: Category[] = [];
+  public deleted: boolean;
+  public err: string;
 
   constructor(private categoryService: CategoryService) { }
 
@@ -20,7 +22,8 @@ export class CategoriesAdministrationComponent implements OnInit {
 
   delete(cat: Category) {
     this.categories = this.categories.filter(c => c.id !== cat.id);
-    this.categoryService.deleteById(cat.id);
+    this.categoryService.deleteById(cat.id)
+      .subscribe(res => this.deleted = true, err => this.err = err);
   }
 
 }

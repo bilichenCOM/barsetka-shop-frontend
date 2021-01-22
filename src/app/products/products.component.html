@@ -10,10 +10,10 @@
 					<!-- <img class="img-fluid" src="../../assets/images/products/stub.jpg"> -->
 					<div class="card-body pt-1">
 						<h5 class="card-title mb-1">{{pr.name}}</h5>
-						<p class="card-text mb-0">{{pr.description}}</p>
+						<p class="card-text mb-0">{{pr.description.substring(0, 50)}}</p>
 						<ul class="list-unstyled">
 							<li class="list-inline-item mt-0">
-								<div class="text-info price">{{pr.price | currency}}</div>
+								<div class="text-info price">{{pr.price | currency: 'UAH'}}</div>
 							</li>
 							<li class="list-inline-item mt-0">
 								<a routerLink="/productDetails/{{pr.id}}">

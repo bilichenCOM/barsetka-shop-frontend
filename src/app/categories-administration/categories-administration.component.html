@@ -25,6 +25,16 @@
 			</div>
 
     </div>
+
+    <div class="row" *ngIf="err">
+      <div class="col-sm-12">
+        <div class="alert alert-danger">
+          <img src="../../assets/error.png" alt="error" class="img img-fluid rounded">
+          <span class="fa fa-times-circle"></span>Помилка.
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </section>

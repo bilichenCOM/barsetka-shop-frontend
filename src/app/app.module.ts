@@ -1,6 +1,6 @@
+import { NgModule } from '@angular/core';
 import { HttpInterceptorService } from './_helpers/http-interceptor';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 

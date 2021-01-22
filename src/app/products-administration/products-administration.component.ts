@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsAdministrationComponent implements OnInit {
 
   public products: Product[] = [];
+  public deleted: boolean;
+  public deletedId: number;
+  public err: boolean;
 
   constructor(private productService: ProductService,
     private categoryService: CategoryService) { }
@@ -26,7 +29,13 @@ export class ProductsAdministrationComponent implements OnInit {
   }
 
   delete(pr: Product) {
-    this.productService.deleteById(pr.id);
+    this.products = this.products.filter(p => p.id !== pr.id)
+    this.productService.deleteById(pr.id)
+      .subscribe(res => this.deleted = true, err => {
+        console.log(err);
+        this.err = true;
+      });
+    this.deletedId = pr.id;
   }
 
 }
