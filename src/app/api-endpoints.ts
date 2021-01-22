@@ -1,4 +1,5 @@
 export class APIEndpoints {
+
   // public static BASE = 'http://localhost:8080/api';
   public static BASE = 'https://barsetka-server.herokuapp.com/api';
 
