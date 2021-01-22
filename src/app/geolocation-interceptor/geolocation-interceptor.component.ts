@@ -20,6 +20,9 @@ export class GeolocationInterceptorComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('located') === 'true') {
+      this.router.navigate(['/main']);
+    }
     const log = new Log();
     log.message = 'request accepted';
     log.severity = Severity.INFO;
@@ -49,6 +52,7 @@ export class GeolocationInterceptorComponent implements OnInit {
           console.log(err);
         }
         );
+        localStorage.setItem('located', 'true');
         this.router.navigate(['/main']);
       }, err => {
         console.log(err);

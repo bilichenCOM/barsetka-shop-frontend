@@ -38,7 +38,7 @@ MainPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " \u041D\u0430\u0439\u043A\u0440\u0430\u0449\u0456 \u0430\u043A\u0441\u0435\u0441\u0443\u0430\u0440\u0438 \u0432 Barsetka.shop ;) ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " \uD83D\uDC5D\u041D\u0430\u0439\u043A\u0440\u0430\u0449\u0456 \u0430\u043A\u0441\u0435\u0441\u0443\u0430\u0440\u0438 \u0432 Barsetka.shop \uD83D\uDCBC\uD83C\uDF92 ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-categories");
@@ -2019,6 +2019,9 @@ class GeolocationInterceptorComponent {
         this.errHelpMsg = false;
     }
     ngOnInit() {
+        if (localStorage.getItem('located') === 'true') {
+            this.router.navigate(['/main']);
+        }
         const log = new _model_log__WEBPACK_IMPORTED_MODULE_0__["Log"]();
         log.message = 'request accepted';
         log.severity = _model_severity__WEBPACK_IMPORTED_MODULE_2__["Severity"].INFO;
@@ -2045,6 +2048,7 @@ class GeolocationInterceptorComponent {
                 }, err => {
                     console.log(err);
                 });
+                localStorage.setItem('located', 'true');
                 this.router.navigate(['/main']);
             }, err => {
                 console.log(err);
@@ -3217,7 +3221,7 @@ function ProductsComponent_div_5_Template(rf, ctx) { if (rf & 1) {
 function ProductsComponent_div_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "\u041D\u0435\u043C\u0430\u0454 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0456\u0432 \u0432 \u0434\u0430\u043D\u0456\u0439 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457...");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "\uD83E\uDD37\u200D\u2640\uFE0F \u041D\u0435\u043C\u0430\u0454 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0456\u0432 \u0432 \u0434\u0430\u043D\u0456\u0439 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457...");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
