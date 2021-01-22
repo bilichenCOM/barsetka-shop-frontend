@@ -1,3 +1,4 @@
+import { Category } from './../_model/category';
 import { Product } from './../_model/product';
 import { CategoryService } from './../_service/category.service';
 import { ProductService } from './../_service/product.service';
@@ -14,6 +15,8 @@ export class ProductsAdministrationComponent implements OnInit {
   public deleted: boolean;
   public deletedId: number;
   public err: boolean;
+  public selectedCategory: Category;
+  public categories: Category[];
 
   constructor(private productService: ProductService,
     private categoryService: CategoryService) { }
@@ -21,11 +24,11 @@ export class ProductsAdministrationComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.getAll()
       .subscribe(cats => {
-         cats.forEach(cat => {
-          this.categoryService.getAllProducts(cat.id)
-            .subscribe(prs => this.products = prs);
-         })
-       })
+        this.categories = cats;
+        this.selectedCategory = this.categories[0];
+        this.categoryService.getAllProducts(this.selectedCategory.id)
+          .subscribe(prods => this.products = prods, err => console.log(err));
+      }, err => console.log(err));
   }
 
   delete(pr: Product) {
@@ -38,4 +41,9 @@ export class ProductsAdministrationComponent implements OnInit {
     this.deletedId = pr.id;
   }
 
+  onChangeCat(cat) {
+    this.selectedCategory = cat;
+    this.categoryService.getAllProducts(this.selectedCategory.id)
+          .subscribe(prods => this.products = prods, err => console.log(err));
+  }
 }
