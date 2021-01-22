@@ -22,6 +22,7 @@ import { CategoriesAdministrationComponent } from './categories-administration/c
 import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
 import { ProductsAdministrationComponent } from './products-administration/products-administration.component';
 import { ProductDetailsAdministrationComponent } from './product-details-administration/product-details-administration.component';
+import { GeolocationInterceptorComponent } from './geolocation-interceptor/geolocation-interceptor.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProductDetailsAdministrationComponent } from './product-details-adminis
     CategoriesAdministrationComponent,
     CategoryDetailsAdministrationComponent,
     ProductsAdministrationComponent,
-    ProductDetailsAdministrationComponent
+    ProductDetailsAdministrationComponent,
+    GeolocationInterceptorComponent
   ],
   imports: [
     BrowserModule,

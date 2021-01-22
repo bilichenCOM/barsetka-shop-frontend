@@ -1,3 +1,4 @@
+import { GeolocationInterceptorComponent } from './geolocation-interceptor/geolocation-interceptor.component';
 import { ProductDetailsAdministrationComponent } from './product-details-administration/product-details-administration.component';
 import { ProductsAdministrationComponent } from './products-administration/products-administration.component';
 import { CategoryDetailsAdministrationComponent } from './category-details-administration/category-details-administration.component';
@@ -18,7 +19,8 @@ import { AdministrationComponent } from './administration/administration.compone
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: GeolocationInterceptorComponent },
 	{ path: 'about-us', component: AboutUsComponent },
 	{ path: 'main', component: MainPageComponent },
 	{ path: 'contacts', component: ContactsComponent },

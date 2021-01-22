@@ -1,0 +1,8 @@
+section {
+  min-height: 85vh;
+}
+
+.muted {
+  opacity: .2;
+  color: white;
+}
