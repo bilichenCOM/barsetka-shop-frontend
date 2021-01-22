@@ -777,10 +777,10 @@
 
       var APIEndpoints = function APIEndpoints() {
         _classCallCheck(this, APIEndpoints);
-      };
+      }; // public static BASE = 'http://localhost:8080/api';
 
-      APIEndpoints.BASE = 'http://localhost:8080/api'; // public static BASE = 'https://barsetka-server.herokuapp.com/api';
 
+      APIEndpoints.BASE = 'https://barsetka-server.herokuapp.com/api';
       APIEndpoints.CATEGORIES = APIEndpoints.BASE + '/categories';
       APIEndpoints.PRODUCTS = APIEndpoints.BASE + '/products';
       APIEndpoints.CITIES = APIEndpoints.BASE + '/cities';

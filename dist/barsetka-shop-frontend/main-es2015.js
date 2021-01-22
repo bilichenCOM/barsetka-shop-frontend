@@ -393,8 +393,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APIEndpoints", function() { return APIEndpoints; });
 class APIEndpoints {
 }
-APIEndpoints.BASE = 'http://localhost:8080/api';
-// public static BASE = 'https://barsetka-server.herokuapp.com/api';
+// public static BASE = 'http://localhost:8080/api';
+APIEndpoints.BASE = 'https://barsetka-server.herokuapp.com/api';
 APIEndpoints.CATEGORIES = APIEndpoints.BASE + '/categories';
 APIEndpoints.PRODUCTS = APIEndpoints.BASE + '/products';
 APIEndpoints.CITIES = APIEndpoints.BASE + '/cities';
