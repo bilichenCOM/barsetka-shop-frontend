@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Barsetka.shop</title>
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+</head>
+<body>
+	<app-root>
+		<div class="text-center">
+			<span class="fa fa-spinner"></span>
+		</div>
+	</app-root>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- i18n -->
+ <!--  <script src="./assets/js/jquery.i18n/src/jquery.i18n.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.emitter.bidi.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.emitter.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.fallbacks.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.language.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.messagestore.js"></script>
+  <script src="./assets/js/jquery.i18n/src/jquery.i18n.parser.js"></script>
+  <script src="./assets/js/i18n/i18n.js"></script>
+ -->
+ <!-- TODO: make latest ng localize package usable for project -->
+ 
+	<script>
+		function swap(e) {
+	        var selected = $(this).html();
+	        var selectedlocale = $(this).data('locale');
+	        var replace = $('.dropdown-toggle').html();
+	        var replacelocale = $('.dropdown-toggle').data('locale');
+
+	        $('.dropdown-toggle').html(selected);
+	        $(this).html(replace);
+	        $('.dropdown-toggle').data('locale', selectedlocale);
+	        $(this).data('locale', replacelocale);
+	      }
+
+		$(document).ready(function() {
+	        $('.navbar-collapse a').click(function(){
+	            $(".navbar-collapse").collapse('hide');
+	        });
+
+	        $('.navbar-nav').on('click', 'a', collapse);
+
+	        $('.switch-locale').off('click', collapse);
+
+	        $('.dropdown-menu').on('click', 'a', swap);
+
+		});
+    </script>
+<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+</html>
