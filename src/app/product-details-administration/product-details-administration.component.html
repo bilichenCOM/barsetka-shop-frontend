@@ -19,13 +19,13 @@
 
     <div class="form-group">
       <label for="photo-urls">Фото адреси:</label>
-      <input type="text" class="form-control" [(ngModel)]="prod.photoUrls[0]" id="photo-urls">
+      <input type="text" class="form-control mt-1" *ngFor="let p of prod.photoUrls;let ind=index;" [(ngModel)]="prod.photoUrls[ind]" (change)="onChangePhotoUrl()" id="photo-urls">
       <small class="form-text">розділювач адрес - ";"</small>
     </div>
 
     <div class="form-group">
       <label for="category">Категорія:</label>
-      <select class="custom-select d-block w-100" [ngModel]="prod.category" (ngModelChange)="onChangeCat($event)" id="category">
+      <select class="custom-select d-block w-100" [ngModel]="prod.category.name" (ngModelChange)="onChangeCat($event)" id="category">
         <option value="">виберіть...</option>
         <option [ngValue]="cat" *ngFor="let cat of categories">{{cat.name}}</option>
       </select>

@@ -58,4 +58,9 @@ export class ProductDetailsAdministrationComponent implements OnInit {
 		this.prod.category=cat;
 	}
 
+  onChangePhotoUrl() {
+    const photoUrls = new Set(this.prod.photoUrls);
+    photoUrls.add('');
+    this.prod.photoUrls = Array.from(photoUrls);
+  }
 }
