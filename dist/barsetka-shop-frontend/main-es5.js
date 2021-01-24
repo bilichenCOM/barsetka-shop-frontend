@@ -5642,193 +5642,188 @@
       /* harmony import */
 
 
-      var _geolocation_interceptor_geolocation_interceptor_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./geolocation-interceptor/geolocation-interceptor.component */
-      "pfiG");
-      /* harmony import */
-
-
-      var _product_details_administration_product_details_administration_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _product_details_administration_product_details_administration_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! ./product-details-administration/product-details-administration.component */
       "paOv");
       /* harmony import */
 
 
-      var _products_administration_products_administration_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _products_administration_products_administration_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./products-administration/products-administration.component */
       "ck6K");
       /* harmony import */
 
 
-      var _category_details_administration_category_details_administration_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _category_details_administration_category_details_administration_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./category-details-administration/category-details-administration.component */
       "Hujq");
       /* harmony import */
 
 
-      var _categories_administration_categories_administration_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _categories_administration_categories_administration_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./categories-administration/categories-administration.component */
       "adhq");
       /* harmony import */
 
 
-      var _helpers_authgard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _helpers_authgard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./_helpers/authgard */
       "rr/l");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./about-us/about-us.component */
       "BsnK");
       /* harmony import */
 
 
-      var _main_page_main_page_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _main_page_main_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./main-page/main-page.component */
       "0PS2");
       /* harmony import */
 
 
-      var _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./contacts/contacts.component */
       "iZNs");
       /* harmony import */
 
 
-      var _categories_categories_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _categories_categories_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./categories/categories.component */
       "IhOl");
       /* harmony import */
 
 
-      var _products_products_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _products_products_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./products/products.component */
       "ziXE");
       /* harmony import */
 
 
-      var _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./product-details/product-details.component */
       "ylPK");
       /* harmony import */
 
 
-      var _delivery_form_delivery_form_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _delivery_form_delivery_form_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./delivery-form/delivery-form.component */
       "uGZk");
       /* harmony import */
 
 
-      var _user_cart_user_cart_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _user_cart_user_cart_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./user-cart/user-cart.component */
       "urJg");
       /* harmony import */
 
 
-      var _administration_administration_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _administration_administration_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./administration/administration.component */
       "1JYN");
       /* harmony import */
 
 
-      var _login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./login/login.component */
       "vtpD");
 
       var routes = [{
         path: '',
-        redirectTo: 'welcome',
+        redirectTo: 'main',
         pathMatch: 'full'
       }, {
         path: 'welcome',
-        component: _geolocation_interceptor_geolocation_interceptor_component__WEBPACK_IMPORTED_MODULE_0__["GeolocationInterceptorComponent"]
+        redirectTo: 'main',
+        pathMatch: 'full'
       }, {
         path: 'about-us',
-        component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_8__["AboutUsComponent"]
+        component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_7__["AboutUsComponent"]
       }, {
         path: 'main',
-        component: _main_page_main_page_component__WEBPACK_IMPORTED_MODULE_9__["MainPageComponent"]
+        component: _main_page_main_page_component__WEBPACK_IMPORTED_MODULE_8__["MainPageComponent"]
       }, {
         path: 'contacts',
-        component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_10__["ContactsComponent"]
+        component: _contacts_contacts_component__WEBPACK_IMPORTED_MODULE_9__["ContactsComponent"]
       }, {
         path: 'categories',
-        component: _categories_categories_component__WEBPACK_IMPORTED_MODULE_11__["CategoriesComponent"]
+        component: _categories_categories_component__WEBPACK_IMPORTED_MODULE_10__["CategoriesComponent"]
       }, {
         path: 'categories/:categoryId/products',
-        component: _products_products_component__WEBPACK_IMPORTED_MODULE_12__["ProductsComponent"]
+        component: _products_products_component__WEBPACK_IMPORTED_MODULE_11__["ProductsComponent"]
       }, {
         path: 'productDetails/:productId',
-        component: _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_13__["ProductDetailsComponent"]
+        component: _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_12__["ProductDetailsComponent"]
       }, {
         path: 'delivery-form',
-        component: _delivery_form_delivery_form_component__WEBPACK_IMPORTED_MODULE_14__["DeliveryFormComponent"]
+        component: _delivery_form_delivery_form_component__WEBPACK_IMPORTED_MODULE_13__["DeliveryFormComponent"]
       }, {
         path: 'currentUser/cart',
-        component: _user_cart_user_cart_component__WEBPACK_IMPORTED_MODULE_15__["UserCartComponent"]
+        component: _user_cart_user_cart_component__WEBPACK_IMPORTED_MODULE_14__["UserCartComponent"]
       }, {
         path: 'administration',
-        component: _administration_administration_component__WEBPACK_IMPORTED_MODULE_16__["AdministrationComponent"],
-        canActivate: [_helpers_authgard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+        component: _administration_administration_component__WEBPACK_IMPORTED_MODULE_15__["AdministrationComponent"],
+        canActivate: [_helpers_authgard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
       }, {
         path: 'login',
-        component: _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"]
+        component: _login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"]
       }, {
         path: 'administration/categories',
-        component: _categories_administration_categories_administration_component__WEBPACK_IMPORTED_MODULE_4__["CategoriesAdministrationComponent"]
+        component: _categories_administration_categories_administration_component__WEBPACK_IMPORTED_MODULE_3__["CategoriesAdministrationComponent"]
       }, {
         path: 'administration/categories/:categoryId',
-        component: _category_details_administration_category_details_administration_component__WEBPACK_IMPORTED_MODULE_3__["CategoryDetailsAdministrationComponent"]
+        component: _category_details_administration_category_details_administration_component__WEBPACK_IMPORTED_MODULE_2__["CategoryDetailsAdministrationComponent"]
       }, {
         path: 'administration/products',
-        component: _products_administration_products_administration_component__WEBPACK_IMPORTED_MODULE_2__["ProductsAdministrationComponent"]
+        component: _products_administration_products_administration_component__WEBPACK_IMPORTED_MODULE_1__["ProductsAdministrationComponent"]
       }, {
         path: 'administration/products/:productId',
-        component: _product_details_administration_product_details_administration_component__WEBPACK_IMPORTED_MODULE_1__["ProductDetailsAdministrationComponent"]
+        component: _product_details_administration_product_details_administration_component__WEBPACK_IMPORTED_MODULE_0__["ProductDetailsAdministrationComponent"]
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
         _classCallCheck(this, AppRoutingModule);
       };
 
-      AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({
+      AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineNgModule"]({
         type: AppRoutingModule
       });
-      AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({
+      AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector"]({
         factory: function AppRoutingModule_Factory(t) {
           return new (t || AppRoutingModule)();
         },
-        imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]]
+        imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]],
-          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]]
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]]
         });
       })();
       /*@__PURE__*/
 
 
       (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵsetClassMetadata"](AppRoutingModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["NgModule"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵsetClassMetadata"](AppRoutingModule, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"],
           args: [{
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]]
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]]
           }]
         }], null, null);
       })();
