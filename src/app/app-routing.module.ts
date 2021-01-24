@@ -19,8 +19,8 @@ import { AdministrationComponent } from './administration/administration.compone
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-  { path: 'welcome', component: GeolocationInterceptorComponent },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'welcome', redirectTo: 'main', pathMatch: 'full'},
 	{ path: 'about-us', component: AboutUsComponent },
 	{ path: 'main', component: MainPageComponent },
 	{ path: 'contacts', component: ContactsComponent },
