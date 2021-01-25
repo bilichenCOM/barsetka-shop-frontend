@@ -4019,7 +4019,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.prod.category.name);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.prod.category);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
